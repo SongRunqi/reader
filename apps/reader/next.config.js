@@ -61,5 +61,13 @@ const prod = withSentryConfig(
   // ensure that your source maps include changes from all other Webpack plugins
   sentryWebpackPluginOptions,
 )
+const nextConfig = {
+  output: 'export',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/reader' : '',
+  basePath: process.env.NODE_ENV === 'production' ? '/reader' : '',
+  images: {
+    unoptimized: true,
+  },
+}
 
-module.exports = IS_DEV ? dev : IS_DOCKER ? docker : prod
+module.exports = nextConfig
