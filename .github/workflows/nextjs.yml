@@ -39,10 +39,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Build
-        run: |
-          cd apps/reader
-          pnpm build
+      - name: Build reader app
+        run: pnpm --filter reader build
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
